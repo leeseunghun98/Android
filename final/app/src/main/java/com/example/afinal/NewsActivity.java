@@ -17,8 +17,8 @@ public class NewsActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
     private RecyclerView.Adapter adapter;
-    private String[] Data={"1","2"};
-    private String[] Text2={"3","4"};
+    private String[] Title={"1","2"};
+    private String[] Content={"3","4"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,30 +28,30 @@ public class NewsActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        adapter = new AdapterActivity1(Data,Text2);
+        adapter = new AdapterActivity1(Title,Content);
         recyclerView.setAdapter(adapter);
     }
 }
 
 class AdapterActivity1 extends RecyclerView.Adapter<AdapterActivity1.MainHolder> {
-    private String[] Data;
-    private String[] Text2;
+    private String[] Title;
+    private String[] Content;
 
     MainHolder mainHolder;
     // 생성자
-    public AdapterActivity1(String[] Data,String[] Text2) {
-        this.Data = Data;
-        this.Text2 = Text2;
+    public AdapterActivity1(String[] Title,String[] Content) {
+        this.Title = Title;
+        this.Content = Content;
     }
     public static class MainHolder extends RecyclerView.ViewHolder {
-        public TextView TextView_newsTextview1,TextView_newsTextview2;
-        public ImageView ImageView_Newsimage1;
+        public TextView TextView_newsTitle,TextView_newsContent;
+        public ImageView ImageView_News_img;
 
         public MainHolder(View v) {
             super(v);
-            this.TextView_newsTextview1 = v.findViewById(R.id.TextView_newsTextview1);
-            this.TextView_newsTextview2 = v.findViewById(R.id.TextView_newsTextview2);
-            this.ImageView_Newsimage1 = v.findViewById(R.id.ImageView_Newsimage1);
+            this.TextView_newsTitle = v.findViewById(R.id.TextView_newsTitle);
+            this.TextView_newsContent = v.findViewById(R.id.TextView_newsContent);
+            this.ImageView_News_img = v.findViewById(R.id.ImageView_News_img);
         }
     }
     @NonNull
@@ -63,11 +63,11 @@ class AdapterActivity1 extends RecyclerView.Adapter<AdapterActivity1.MainHolder>
     }
     @Override
     public void onBindViewHolder(@NonNull MainHolder mainHolder, int i) {
-        mainHolder.TextView_newsTextview1.setText(this.Data[i]);
-        mainHolder.TextView_newsTextview2.setText(this.Text2[i]);
+        mainHolder.TextView_newsTitle.setText(this.Title[i]);
+        mainHolder.TextView_newsContent.setText(this.Content[i]);
     }
     @Override
     public int getItemCount() {
-        return Data.length;
+        return Title.length;
     }
 }

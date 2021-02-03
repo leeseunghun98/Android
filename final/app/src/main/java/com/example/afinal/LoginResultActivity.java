@@ -12,7 +12,7 @@ public class LoginResultActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login1);
 
         TextView_get = findViewById(R.id.TextView_get);
 
